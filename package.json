@@ -2,20 +2,22 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "getit",
   "title": "GetIt",
-  "description": "Make requests directly",
-  "icon": "extension-icon.png",
+  "description": "Make requests such as POST, GET, PUT, DELETE on any API directly from Raycast",
+  "icon": "getit.png",
   "author": "tobikli",
   "owner": "tobias-klingenberg",
   "categories": [
-    "Developer Tools"
+    "Developer Tools",
+    "Applications",
+    "Data"
   ],
   "license": "MIT",
   "commands": [
     {
       "name": "getit",
-      "title": "getit",
-      "subtitle": "Make requests directly",
-      "description": "Make requests directly",
+      "title": "GetIt",
+      "subtitle": "Make API requests",
+      "description": "Make requests such as POST, GET, PUT, DELETE on any API directly from Raycast",
       "mode": "view"
     }
   ],
@@ -26,6 +28,7 @@
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.11",
     "@types/node": "20.8.10",
+    "@types/node-fetch": "^2.6.12",
     "@types/react": "18.3.3",
     "eslint": "^8.57.0",
     "prettier": "^3.3.3",
