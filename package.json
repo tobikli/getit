@@ -5,7 +5,6 @@
   "description": "Make requests such as POST, GET, PUT, DELETE on any API directly from Raycast",
   "icon": "getit.png",
   "author": "tobikli",
-  "owner": "twk",
   "categories": [
     "Developer Tools"
   ],
