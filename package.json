@@ -1,21 +1,19 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "getit",
-  "title": "GetIt",
+  "title": "Getit",
   "description": "Make requests such as POST, GET, PUT, DELETE on any API directly from Raycast",
   "icon": "getit.png",
   "author": "tobikli",
-  "owner": "tobias-klingenberg",
+  "owner": "twk",
   "categories": [
-    "Developer Tools",
-    "Applications",
-    "Data"
+    "Developer Tools"
   ],
   "license": "MIT",
   "commands": [
     {
       "name": "getit",
-      "title": "GetIt",
+      "title": "Getit",
       "subtitle": "Make API requests",
       "description": "Make requests such as POST, GET, PUT, DELETE on any API directly from Raycast",
       "mode": "view"

@@ -1,14 +1,4 @@
-import {
-  Action,
-  ActionPanel,
-  Form,
-  showToast,
-  Toast,
-  Icon,
-  useNavigation,
-  Detail,
-  List,
-} from "@raycast/api";
+import { Action, ActionPanel, Form, showToast, Toast, Icon, useNavigation, Detail } from "@raycast/api";
 import { useForm, useFetch, FormValidation } from "@raycast/utils";
 
 interface RequestValues {
@@ -46,23 +36,14 @@ export default function Command() {
 
   return (
     <Form
-      searchBarAccessory={
-        <Form.LinkAccessory
-          target="https://github.com/tobikli/getit"
-          text="Open Source Code"
-        />
-      }
+      searchBarAccessory={<Form.LinkAccessory target="https://github.com/tobikli/getit" text="Open Source Code" />}
       actions={
         <ActionPanel>
           <Action.SubmitForm title="Submit" onSubmit={handleSubmit} />
         </ActionPanel>
       }
     >
-      <Form.TextField
-        title="URL"
-        placeholder="https://api.twks.net"
-        {...itemProps.url}
-      />
+      <Form.TextField title="URL" placeholder="https://api.twks.net" {...itemProps.url} />
 
       <Form.Dropdown {...itemProps.type} title="Request Type">
         <Form.Dropdown.Item value="GET" title="GET" />
@@ -72,11 +53,7 @@ export default function Command() {
       </Form.Dropdown>
 
       {(itemProps.type.value === "POST" || itemProps.type.value === "PUT") && (
-        <Form.TextArea
-          title="Request Body"
-          placeholder="Enter JSON body"
-          {...itemProps.body}
-        />
+        <Form.TextArea title="Request Body" placeholder="Enter JSON body" {...itemProps.body} />
       )}
 
       <Form.Separator />
@@ -85,11 +62,7 @@ export default function Command() {
   );
 }
 
-function RequestResult({
-  values,
-}: {
-  values: { url: string; type: string; body?: string };
-}) {
+function RequestResult({ values }: { values: { url: string; type: string; body?: string } }) {
   const { isLoading, data, revalidate } = useFetch(values.url, {
     method: values.type,
     body: values.body ? JSON.stringify(values.body) : undefined,
@@ -98,8 +71,7 @@ function RequestResult({
   });
 
   // Escape special markdown characters to avoid breaking the format
-  const escapeMarkdown = (text: string) =>
-    text.replace(/`/g, "\\`").replace(/\*/g, "\\*").replace(/_/g, "\\_");
+  const escapeMarkdown = (text: string) => text.replace(/`/g, "\\`").replace(/\*/g, "\\*").replace(/_/g, "\\_");
 
   return (
     <Detail
@@ -122,11 +94,7 @@ ${data ? escapeMarkdown(data) : "No response yet"}
             content={data ? escapeMarkdown(data) : "No response yet"}
             icon={Icon.Clipboard}
           />
-          <Action
-            title="Reload"
-            onAction={() => revalidate()}
-            icon={Icon.RotateAntiClockwise}
-          />
+          <Action title="Reload" onAction={() => revalidate()} icon={Icon.RotateAntiClockwise} />
         </ActionPanel>
       }
     />
