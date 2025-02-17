@@ -14,7 +14,7 @@ export default function Command() {
       showToast({
         style: Toast.Style.Success,
         title: "Request Sent!",
-        message: `Sent a ${values.type} request to ${values.url}`,
+        message: `Succefully sent a ${values.type} request to ${values.url}`,
       });
 
       // Navigate to the new page and display request details
