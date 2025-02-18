@@ -41,7 +41,6 @@ export default function Command() {
     },
   });
 
-
   return (
     <Form
       searchBarAccessory={<Form.LinkAccessory target="https://github.com/tobikli/getit" text="Open Source Code" />}
