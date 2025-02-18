@@ -11,6 +11,11 @@ export default function Command() {
   const { push } = useNavigation(); // Enables navigation to new views
   const { handleSubmit, itemProps } = useForm<RequestValues>({
     onSubmit(values) {
+      showToast({
+        style: Toast.Style.Animated,
+        title: "Making Request",
+        message: `${values.type}: ${values.url}`,
+      });
       push(<RequestResult values={values} />);
     },
     validation: {
@@ -35,6 +40,7 @@ export default function Command() {
       },
     },
   });
+
 
   return (
     <Form
@@ -78,6 +84,11 @@ function RequestResult({ values }: { values: { url: string; type: string; body?:
         });
         return response.statusText;
       }
+      showToast({
+        style: Toast.Style.Success,
+        title: "Successful Request",
+        message: `${values.type}: ${values.url}`,
+      });
       return response.text();
     },
   });
