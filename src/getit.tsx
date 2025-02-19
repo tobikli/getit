@@ -11,6 +11,7 @@ export default function Command() {
   const { push } = useNavigation(); // Enables navigation to new views
   const { handleSubmit, itemProps } = useForm<RequestValues>({
     onSubmit(values) {
+      
       showToast({
         style: Toast.Style.Animated,
         title: "Making Request",
@@ -102,7 +103,7 @@ function RequestResult({ values }: { values: { url: string; type: string; body?:
       
 **URL:** ${values.url}  
 **Type:** ${values.type}  
-${values.body ? `**Body:**\n\`\`\`json\n${values.body}\n\`\`\`` : ""}    
+${values.body ? `**Body:**\n\`\`\`json\n${JSON.stringify(values.body, null, 2)}\n\`\`\`` : ""}    
 ---
 
 ### Response:
