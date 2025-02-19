@@ -11,7 +11,6 @@ export default function Command() {
   const { push } = useNavigation(); // Enables navigation to new views
   const { handleSubmit, itemProps } = useForm<RequestValues>({
     onSubmit(values) {
-      
       showToast({
         style: Toast.Style.Animated,
         title: "Making Request",
